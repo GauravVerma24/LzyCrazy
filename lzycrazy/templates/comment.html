@@ -1,0 +1,23 @@
+<html>
+<head>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center">Add a Comment</h1><hr>
+    <form method="post" action="/add_comment/{{ request.session.uid }}/{{ post_id }}/" class="mt-4">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="comment"><b>Comment:</b></label>
+        <textarea class="form-control" id="comment" name="content" rows="10" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-danger">Back</button>
+    </form>
+  </div>
+
+  <!-- Include Bootstrap JS (optional) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lzycrazy | Ads Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+   {% include 'homeheader.html' %} 
+  
+  <div class="container">
+    <div class="text-right mb-3"><br>
+      <a href="/addproduct/" class="btn btn-success">Add Product</a>
+    </div>
+    <h2 class="mt-3 mb-3">Ads of {{ fname }}</h2>
+    <div class="row">
+
+      {% if ads %}
+        {% for ad in ads %}
+        <div class="col-md-3">
+          <div class="card mb-3">
+            <img src="{{ ad.image.url }}" style="height: 100px; width: 100%;" class="card-img-top" alt="Product 1">
+            <div class="card-body">
+              <h5 class="card-title">Product: {{ ad.productname }}</h5>
+              <p class="card-text">Price: {{ ad.price }}</p>
+              <p class="card-text">Location: {{ ad.city }}</p>
+              <p class="card-text">Description: {{ ad.description }}</p>
+              <p class="card-text">Valid Till: {{ days_remaining }} days</p>
+            </div>
+            <div class="card-footer">
+              <a href="/editproduct/{{ad.id}}/"><button type="submit" class="btn btn-primary btn-block">Edit</button></a><br>
+              <a href="/delete_product/{{ad.id}}/"><button type="submit" class="btn btn-danger btn-block">Delete</button></a><br>
+              <a href="/chatlist/{{ ad.id }}/"><button type="submit" class="btn btn-success btn-block">Chats</button></a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="col">
+          <p>No ads available.</p>
+        </div>
+      {% endif %}
+
+    </div>    
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

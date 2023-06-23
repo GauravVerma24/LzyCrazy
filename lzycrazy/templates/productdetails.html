@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lzycrazy | Product Details</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ image.url }}" style="width: 1250px; height: 400px;" alt="Product Image" class="img-fluid">
+            </div>
+            <div class="col-md-6">
+                <h3>Product Details</h3>
+                <p>Product Name: {{ product.name }}</p>
+                <p>Price: {{ product.price }}</p>
+                <p>Description: {{ product.description }}</p>
+                <a href="/productcontact/{{product.mobile}}/"><button class="btn btn-primary">Contact</button></a>
+                <a href="/product_chat/{{product.id}}/"><button type="submit" class="btn btn-secondary">Chat</button></a>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

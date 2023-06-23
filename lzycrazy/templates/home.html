@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>LzyCrazy | HOME</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/js/bootstrap.min.js"></script>
+  <script src="main.js"></script>
+  <style>
+    @media (max-width: 100%) {
+      .col-md-3,
+      .col-md-6 {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="col-md-12">
+        {% include 'homeheader.html' %}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <!-- Homemenu -->
+        {% include 'homemenu.html' %}
+      </div>
+      <div class="col-md-6">
+        <!-- Homefeed -->
+        {% include 'homefeed.html' %}
+      </div>
+      <div class="col-md-3">
+        <!-- Homechat -->
+        {% include 'homechat.html' %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

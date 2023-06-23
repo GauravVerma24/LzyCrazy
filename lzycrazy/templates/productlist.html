@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lzycrazy | Product List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    {% include 'homeheader.html' %} 
+    <div class="container">
+      <div class="row">  
+        {% if products %}
+          {% for product in products %}
+          <div class="col-md-3"><br>
+            <div class="card mb-3">
+              <form action="/productdetails/{{product.id}}/" method="post">
+                {% csrf_token %}
+               <img src="{{ product.image.url }}" style="height: 200px; width: 100%;" class="card-img-top" alt="Product 1">
+              <div class="card-body">
+                <h5 class="card-title">Product: {{ product.productname }}</h5>
+                <p class="card-text">Owner: {{product.name}}</p>
+                <p class="card-text">Price: {{product.price}} </p>
+                <p class="card-text">Description: {{product.description}}</p>
+                <button type="submit" class="btn btn-primary">View</button>
+                <br>
+              </div>
+
+            </div>
+          </div>
+          {% endfor %}
+        {% endif %}
+          </div>
+      </div>
+  
+      <div class="row"> 
+            {% for product in filtered_data %}
+            <div class="col-md-4"><br>
+                <div class="card mb-3">
+                  <form action="/productdetails/{{product.id}}/" method="post">
+                    {% csrf_token %}
+                    <img src="{{ product.image }}" style="height: 200px; width: 100%;" class="card-img-top" alt="{{ product.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <p class="card-text">Price: {{ product.price }}</p>
+                        <p class="card-text">Mobile: {{ product.mobile }}</p>
+                        <p class="card-text">City: {{ product.city }}</p>
+                        <button type="submit" class="btn btn-primary">View</button>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

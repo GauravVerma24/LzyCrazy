@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lzycrazy | Chat List</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styling goes here */
+    </style>
+</head>
+<body>
+    {% include 'homeheader.html' %}
+    <div class="container"><br>
+        <h3>Chat List</h3><hr>
+        <div class="row">
+        <div class="list-group">
+            {% for sender in sender_list %}
+            <div class="col-md-2">
+                <a href="/buyerchat/{{sender.id}}/{{id}}/" class="list-group-item list-group-item-action">{{ sender.firstname }} {{sender.lastname}}</a>
+            </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

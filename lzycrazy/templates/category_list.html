@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lzycrazy | categorylist</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="containerfluid">
+        {% include 'homeheader.html' %}
+        <div class="row">
+            <div class="col-md-2" style="height: 600px;">
+                <div class="list-group"> 
+                    {% for category in categories %}<br>
+                        <a style="color: white;background-color: black;" href="/subcategory_list/{{category.id}}/" class="list-group-item list-group-item-action{% if category.id == selected_category_id %} active{% endif %}">
+                            {{ category.name }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    {% for banner in banners %}
+                        <div class="col-md-6"><br>
+                            <img src="{{ banner.image.url }}" style="width: 100%; height: 125px;">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

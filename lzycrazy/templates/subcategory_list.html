@@ -1,0 +1,87 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Lzycrazy | subcategory list</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="containerfluid">
+        {% include 'homeheader.html' %}
+        <div class="row">
+                <div class="col-md-2" style="height: 600px;">
+                    <div class="list-group">
+                        {% for subcategory in subcategories %}
+                            {% if category.name == 'Property' %}
+                                <br>
+                                <a style="color: white;background-color: black;" href="/propertyfilters/{{subcategory.id}}/{{subcategory.category_id}}/" class="list-group-item list-group-item-action{% if subcategory.id == selected_subcategory_id %} active{% endif %}">
+                                    {{ subcategory.name }}
+                                </a>
+                            {% else %}
+                                <br>
+                                <a style="color: white;background-color: black;" href="/products/{{subcategory.id}}/{{subcategory.category_id}}/" class="list-group-item list-group-item-action{% if subcategory.id == selected_subcategory_id %} active{% endif %}">
+                                    {{ subcategory.name }}
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        {% for subbanner in subbanners %}
+                            <div class="col-md-6"><br>
+                                <img src="{{ subbanner.image.url }}" style="width: 100%; height: 125px;">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lzycrazy | Subcategory List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container-fluid">
+        {% include 'homeheader.html' %}
+        <div class="row">
+            <div class="col-md-2 col-12" style="height: 600px;">
+                <div class="list-group">
+                    {% for subcategory in subcategories %}
+                        {% if category.name == 'Property' %}
+                            <br>
+                            <a style="color: white;background-color: black;" href="/propertyfilters/{{subcategory.id}}/{{subcategory.category_id}}/" class="list-group-item list-group-item-action{% if subcategory.id == selected_subcategory_id %} active{% endif %}">
+                                {{ subcategory.name }}
+                            </a>
+                        {% else %}
+                            <br>
+                            <a style="color: white;background-color: black;" href="/products/{{subcategory.id}}/{{subcategory.category_id}}/" class="list-group-item list-group-item-action{% if subcategory.id == selected_subcategory_id %} active{% endif %}">
+                                {{ subcategory.name }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-10 col-12">
+                <div class="row">
+                    {% for subbanner in subbanners %}
+                        <div class="col-md-6 col-12"><br>
+                            <img src="{{ subbanner.image.url }}" style="width: 100%; height: 125px;">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

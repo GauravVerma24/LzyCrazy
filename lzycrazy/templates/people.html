@@ -1,0 +1,163 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Lzycrazy | people</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <a rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <script src='main.js'></script>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/js/bootstrap.bundle.min.js"></script>
+  <script src='main.js'></script>
+  <style>
+    /* Custom CSS styles for the page */
+    .people-card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .people-card img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .people-card .people-details {
+      display: flex;
+      align-items: center;
+    }
+    .people-card .add-friend-btn {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  {% include 'homeheader.html' %}
+  <div class="container"><br>
+    <h3>PEOPLE</h3><hr>
+    <div class="row">
+      {% for user in users %}
+      <div class="col-md-4">
+        <div class="people-card" style="width: 100%;">
+          <div class="people-details">
+            <img src="https://via.placeholder.com/75x75" class="rounded-circle mb-0" alt="User Profile Picture"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <h5>{{user.firstname}} {{user.lastname}}</h5> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <form action="/add_friend/{{request.session.uid}}/{{user.id}}/" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-dark">Add Friend</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <script>
+    function changeButtonText() {
+      var button = document.getElementById("addFriendBtn");
+      button.innerHTML = "Requested";
+      button.disabled = true;
+    }
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Lzycrazy | people</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <script src='main.js'></script>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/js/bootstrap.bundle.min.js"></script>
+  <script src='main.js'></script>
+  <style>
+    /* Custom CSS styles for the page */
+    .people-card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .people-card img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .people-card .people-details {
+      display: flex;
+      align-items: center;
+    }
+    .people-card .add-friend-btn {
+      margin-top: 10px;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 767px) {
+      .people-card img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  {% include 'homeheader.html' %}
+  <div class="container"><br>
+    <h3>PEOPLE</h3><hr>
+    <div class="row">
+      {% for user in users %}
+      <div class="col-md-4">
+        <div class="people-card" style="width: 100%;">
+          <div class="people-details">
+            <img src="https://via.placeholder.com/75x75" class="rounded-circle mb-0" alt="User Profile Picture"/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <h5>{{user.firstname}} {{user.lastname}}</h5> 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <form action="/add_friend/{{request.session.uid}}/{{user.id}}/" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-dark">Add Friend</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <script>
+    function changeButtonText() {
+      var button = document.getElementById("addFriendBtn");
+      button.innerHTML = "Requested";
+      button.disabled = true;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Lzycrazy | Password Recovery</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" media="screen" href="main.css">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/js/bootstrap.min.js"></script>
+<script src="main.js"></script>
+<style>
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .card {
+    width: 400px;
+  }
+  .card-header {
+    text-align: center;
+  }
+  .card-body {
+    padding: 20px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .btn-primary {
+    width: 100%;
+  }
+  @media (max-width: 576px) {
+    .container {
+      margin-top: 50px;
+    }
+    .card {
+      width: 90%;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="text-center">Password Recovery</h4>
+      </div>
+      <div class="card-body">
+        <form method="post" action="/forget/">
+          {% csrf_token %}
+          <div class="form-group">
+            <input type="email" name="email" class="form-control"  placeholder="Enter your email">
+          </div>
+          <a href="/">
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+          </a>
+        </form>
+      </div>
+    </div>   
+  </div>
+</body>
+</html>

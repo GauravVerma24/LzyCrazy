@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lzycrazy | Edit Profile</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body><br><br>
+  <div class="container" style="height: 500px;width: 500px;margin-top: 5px;">
+    <div class="card ">
+      <div class="card-header">
+        <h3>Edit Profile</h3>
+      </div>
+      <div class="card-body">
+        <form action="/update_profile/{{request.session.uid}}/" method="POST">
+          {% csrf_token %}
+          <div class="form-group">
+            <input type="text" class="form-control" name="firstname" value="{{ user.firstname }}" placeholder="First Name" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="lastname" value="{{ user.lastname }}" placeholder="Last Name" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="email" value="{{ user.email }}" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="city" value="{{ user.city }}" placeholder="City" required>
+          </div>
+          <div class="form-group">
+            <select class="form-control" name="gender"  placeholder="Gender" required>
+              <option value="male" {% if user.gender == 'male' %}selected{% endif %}>Male</option>
+              <option value="female" {% if user.gender == 'female' %}selected{% endif %}>Female</option>
+              <option value="other" {% if user.gender == 'other' %}selected{% endif %}>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="tel" class="form-control" name="mobile"  placeholder="Mobile" pattern="[0-9]{10}" value="{{ user.mobile }}" required>
+            <small class="form-text text-muted">Please enter a 10-digit mobile number.</small>
+          </div>
+           
+          <button type="submit" style="width: 425px;" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

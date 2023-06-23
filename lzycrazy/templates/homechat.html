@@ -1,0 +1,83 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>      
+  <div class="container bg-light"><br>
+    <div class="card bg-light" style="height: 600px;">
+      <h4>Online Friends</h4>
+      <hr>
+      {% if friend_profiles %}
+      {% for friend in friend_profiles %}
+      <div class="row">
+            <div class="col-md-4">
+              <div class="card" style="width: 275px;">
+                <div class="card-body" style="width: 400px; height: 50px;">
+                  <a href="/friend_chat/{{friend.id}}/" style="text-decoration: none;"><h5 class="card-title" style="color: rgb(8, 125, 8);">{{ friend.firstname }} {{ friend.lastname }}</h5></a>
+                </div>
+              </div><br>
+            </div>
+         
+      </div>
+      {% endfor %}
+      {% else %}
+        <p>No online friends</p>
+      {% endif %}
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    @media (max-width: 576px) {
+      .card-body {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container bg-light"><br>
+    <div class="card bg-light" style="height: 600px;">
+      <h4>Online Friends</h4>
+      <hr>
+      {% if friend_profiles %}
+      {% for friend in friend_profiles %}
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card" style="width: 275px;">
+            <div class="card-body">
+              <a href="/friend_chat/{{friend.id}}/" style="text-decoration: none;">
+                <h5 class="card-title" style="color: rgb(8, 125, 8);">{{ friend.firstname }} {{ friend.lastname }}</h5>
+              </a>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+        <p>No online friends</p>
+      {% endif %}
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

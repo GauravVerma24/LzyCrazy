@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lzycrazy | Add Product</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-3">
+    <div class="card card-body mx-auto" style="width: 500px;">
+      <div class="d-flex flex-column h-100">
+        <h3 class="card-title">Add Product</h3>
+        <hr>
+
+        <form method="POST" action="/addproduct/" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <div class="form-group">
+             <input type="text" class="form-control" name="name" value="{{ firstname }}" required>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" name="productname" placeholder="Product Name:" required>
+          </div>
+
+          <div class="form-group">
+            <select class="form-control" name="subcategoryname" required>
+              {% for subcategoryname in subcategorynames %}
+                <option value="{{ subcategoryname }}">{{ subcategoryname }}</option>
+              {% endfor %}
+            </select>
+          </div>  
+
+
+          <div class="form-group">
+            <input type="file" class="form-control"  name="image" required>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Price:" name="price" required>
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Description:" name="description" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Mobile:" name="mobile" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="City:" name="city" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary mt-auto">Add Product</button>
+          <a href="/myads/{{request.session.uid}}/"><button type="button" style="float: right;" class="btn btn-danger mt-auto">Back</button>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with {{ friend.firstname }} {{ friend.lastname }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <br><br><br>    
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0">Chat with {{ friend.firstname }} {{ friend.lastname }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="message-container">
+                            <div id="message-display">
+                            </div>
+                        </div>
+                        <div class="input-group mt-3">
+                            <input type="text" id="message-input" class="form-control" placeholder="Type a message...">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" id="send-button">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // JavaScript code for handling chat functionality
+            // Add your code here
+        });
+    </script>
+</body>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Chat</title>
+  <script src="friendchatscript.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    #chat-window {
+      height: 400px;
+    }
+
+    .message {
+      margin-bottom: 10px;
+    }
+
+    #input-box {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Chat with {{ friend.firstname }} {{ friend.lastname }}</h4>
+            </div>
+          <div class="card-body" id="chat-window">
+          </div>
+          <div class="card-footer">
+            <div class="input-group">
+              <input type="text" class="form-control" id="input-box" placeholder="Type your message...">
+              <div class="input-group-append">
+                <button class="btn btn-primary" id="send-btn">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    #chat-window {
+      height: 400px;
+      overflow-y: scroll;
+    }
+
+    .message {
+      margin-bottom: 10px;
+    }
+
+    .message .sender {
+      font-weight: bold;
+    }
+
+    .message .receiver {
+      font-weight: bold;
+    }
+
+    .message .message-text {
+      margin-left: 10px;
+    }
+
+    #input-box {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="mb-0">Chat with {{ friend.firstname }} {{ friend.lastname }}</h4>
+        </div>
+          <div class="card-body" id="chat-window">
+            {% for message in messages %}
+            <div class="message {% if message.sender == current_user %}sender-message{% else %}receiver-message{% endif %}">
+                <span class="{% if message.sender == current_user %}sender{% else %}receiver{% endif %}">
+                    {{ message.sender.firstname }}:
+                </span>
+                <span class="message-text">{{ message.message }}</span>
+                <span class="timestamp" style="font-size: x-small;">{{ message.timestamp }}</span>
+            </div>
+        {% endfor %}
+          </div>
+          <div class="card-footer">
+            <div class="input-group">
+                <form action="/send_message/{{request.session.uid}}/{{ friend.id}}/" method="post">
+                    
+                    {% csrf_token %}
+              <input type="text" class="form-control" name="message" id="input-box" placeholder="Type your message...">
+              <div class="input-group-append">
+
+                <button class="btn btn-primary" type="submit" id="send-btn">Send</button>
+                
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lzycrazy | Chat</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Adjust chat window height */
+    #chat-window {
+      height: 400px;
+      overflow-y: scroll;
+    }
+
+    /* Style the chat messages */
+    .message {
+      margin-bottom: 10px;
+    }
+
+    .message .sender {
+      font-weight: bold;
+    }
+
+    .message .receiver {
+      font-weight: bold;
+    }
+
+    .message .message-text {
+      margin-left: 10px;
+    }
+
+    /* Style the input box */
+    #input-box {
+      margin-top: 10px;
+    }
+    @media (max-width: 576px) {
+      #chat-window {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="mb-0">Chat with {{ friend.firstname }} {{ friend.lastname }}</h4>
+        </div>
+          <div class="card-body" id="chat-window">
+            <!-- Chat messages will be displayed here -->
+            {% for message in messages %}
+            <div class="message {% if message.sender == current_user %}sender-message{% else %}receiver-message{% endif %}">
+                <span class="{% if message.sender == current_user %}sender{% else %}receiver{% endif %}">
+                    {{ message.sender.firstname }}:
+                </span>
+                <span class="message-text">{{ message.message }}</span>
+                <span class="timestamp" style="font-size: x-small;">{{ message.timestamp }}</span>
+            </div>
+        {% endfor %}
+            <!-- Add more chat messages here dynamically -->
+          </div>
+          <div class="card-footer">
+            <div class="input-group">
+                <form action="/send_message/{{request.session.uid}}/{{ friend.id}}/" method="post">
+                    {% csrf_token %}
+              <input type="text" class="form-control" name="message" id="input-box" placeholder="Type your message...">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="submit" id="send-btn">Send</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS and your custom script -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
